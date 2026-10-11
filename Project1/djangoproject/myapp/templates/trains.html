@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+
+  
+  .head{
+    background-color: rgb(255, 111, 0);
+    color:white;
+    text-align: center;
+  }
+  .head h2{
+    padding: 20px 0;
+  }
+
+  .body{
+    padding-left: 40px;
+    padding-right: 40px;
+    border: 0.5px solid rgb(188, 180, 180);
+    border-radius: 2px;;
+  }
+    .first{
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+
+    }
+    .radio{
+      display:flex;
+      gap:20px;
+      padding:20px 0;
+    }
+
+
+.second {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.second fieldset {
+    flex: 1;
+    min-width: 0;
+    border: 2px solid #dce3ed;
+    border-radius: 10px;
+    height: 70px;
+    margin: 0;
+    box-sizing: border-box;
+}
+.second legend {
+    color: #667085;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0 5px;
+}
+
+.second input {
+    border: none;
+    outline: none;
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    background-color: transparent;
+    color: #222;
+}
+
+  .third {
+    text-align: center;
+    margin: 30px 0;
+}
+ .third button{
+  background-color: rgb(255, 111, 0);
+  border:2px solid rgb(255, 111, 0);
+  border-radius: 30px;
+  color: white;
+  padding:10px 20px;
+  font-size: 18px;
+
+ }
+</style>
+<div class="flight">
+  <div class="head">
+    <h2>Train Ticket Booking</h2>
+  </div>
+
+  <div class="body">
+
+    <div class="first">
+      <div class="radio">
+        <input type="radio" id="oneway" name="radio">
+        <label for="oneway">Book Train Tickets</label>
+        <input type="radio" id="roundtrip" name="radio">
+        <label for="roundtrip">Check PNR Status</label>     
+        <input type="radio" id="multiCity" name="radio">
+        <label for="multicity">Live Train Status</label>
+   </div>
+   </div>
+   <div class="second">
+      <fieldset class="destination">
+        <legend>From</legend>
+        <input type="text" placeholder="Enter Source name">
+      </fieldset>
+
+      <fieldset class="checkin">
+        <legend>To</legend>
+        <input type="text" placeholder="Enter Destination Name">
+      </fieldset>
+
+       <fieldset class="checkout">
+        <legend>Departure</legend>
+        <input type="text" value="17 Oct 26">
+      </fieldset>
+
+    </div>
+
+
+
+ 
+    <div class="third">
+      <button>SEARCH</button>
+
+    </div>
+  </div>
+
+{% endblock %}
