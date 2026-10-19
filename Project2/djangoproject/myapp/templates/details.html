@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  table {
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 8px;
+    text-align: center;
+  }
+
+  tbody tr {
+    height: 100px;
+  }
+
+  td img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+  }
+</style>
+</head>
+<body>
+  <h1>Pet Details</h1>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Pet Name</th>
+        <th>Pet Type</th>
+        <th>Price</th>
+        <th>Owner</th>
+        <th>Phone No</th>
+        <th>Image</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      {% for i in details %}
+
+      <tr>
+        <td>{{i.pet_name}}</td>
+        <td>{{i.pet_type}}</td>
+        <td>{{i.price}}</td>
+        <td>{{i.owner}}</td>
+        <td>{{i.phone_no}}</td>
+        <td>
+          {% if i.image %}
+           <img src="{{i.image.url}}" width="100">
+          {% else %}
+           No image Uploaded
+          {% endif %}
+        </td>
+
+        <td>
+          <form method="POST" action="{% url 'delete' i.id %}">
+            {% csrf_token %}
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+        <td>
+          <form method="get" action="{% url 'update' i.id %}">
+            <button type="submit">Update</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+
+    </tbody>
+
+  </table>
+</body>
+</html>
